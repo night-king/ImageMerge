@@ -27,6 +27,8 @@ namespace ImageMerge.ConsoleTest
 
             testMerge2("网络图片", images[0], images[1], Merge2LayoutEnum.Merge2R1);
 
+            testMerge2("网络图片", images[0], images[1], Merge2LayoutEnum.Merge2R2);
+
             testMerge3("网络图片", images[0], images[1], images[2], Merge3LayoutEnum.Merge1R2S1);
             testMerge3("网络图片", images[0], images[1], images[2], Merge3LayoutEnum.Merge1R2S2);
             testMerge3("网络图片", images[0], images[1], images[2], Merge3LayoutEnum.Merge1R2S3);
@@ -50,6 +52,7 @@ namespace ImageMerge.ConsoleTest
                Path.Combine(dir,"4.png") };
 
             testMerge2("本地图片",images[0], images[1], Merge2LayoutEnum.Merge2R1);
+            testMerge2("本地图片", images[0], images[1], Merge2LayoutEnum.Merge2R2);
 
             testMerge3("本地图片", images[0], images[1], images[2], Merge3LayoutEnum.Merge1R2S1);
             testMerge3("本地图片", images[0], images[1], images[2], Merge3LayoutEnum.Merge1R2S2);
