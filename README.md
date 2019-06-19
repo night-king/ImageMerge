@@ -9,17 +9,23 @@
 
 （1）2张图片的合并
 1.1 Merge2R1形态：
- ![avatar](https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge2R1.png?raw=true)
+
+<img src="https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge2R1.png?raw=true" width = "100" height = "100" />
  
  1.2 Merge2R2形态：
- ![avatar](https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge2R2.png?raw=true)
+ <img src="https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge2R2.png?raw=true" width = "100" height = "100" />
+
  
  （2）3张图片合并
  2.1 Merge1R2S1形态：
-  ![avatar](https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge1R2S1.png?raw=true)
+ 
+ <img src="https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge1R2S1.png?raw=true" width = "100" height = "100" />
+
   
 （3）4张图片合并
  3.1 Merge4S形态：
-  ![avatar](https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge4S.png?raw=true)
+ 
+ <img src="https://github.com/night-king/ImageMerge/blob/master/src/ImageMerge.ConsoleTest/%E6%B5%8B%E8%AF%95%E7%BB%93%E6%9E%9C/%E7%BD%91%E7%BB%9C%E5%9B%BE%E7%89%87-Merge4S.png?raw=true" width = "100" height = "100" />
+
  
  
