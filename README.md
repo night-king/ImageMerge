@@ -2,10 +2,10 @@
 将多张图片合并成一张图片，可用于生成IM即时通讯群组拼接头像。
 
 以下四张网络图片作为源文件。
-![avatar](https://avatars2.githubusercontent.com/u/5965882?s=460&v=4)
-![avatar](https://avatars2.githubusercontent.com/u/2503423?s=460&v=4)
-![avatar](https://avatars2.githubusercontent.com/u/499550?s=460&v=4)
-![avatar](https://avatars2.githubusercontent.com/u/233907?s=400&v=4)
+<img src="https://avatars2.githubusercontent.com/u/5965882?s=460&v=4" width = "100" height = "100" />
+<img src="https://avatars2.githubusercontent.com/u/2503423?s=460&v=4" width = "100" height = "100" />
+<img src="https://avatars2.githubusercontent.com/u/499550?s=460&v=4" width = "100" height = "100" />
+<img src="https://avatars2.githubusercontent.com/u/233907?s=400&v=4" width = "100" height = "100" />
 
 （1）2张图片的合并
 1.1 Merge2R1形态：
