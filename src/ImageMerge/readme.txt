@@ -1,0 +1,1 @@
+﻿本SDK依赖Package: System.Drawing.Common
