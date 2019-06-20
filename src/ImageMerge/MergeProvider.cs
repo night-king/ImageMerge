@@ -14,6 +14,88 @@ namespace Deepleo.ImageMerge
     public class MergeProvider
     {
         /// <summary>
+        /// 合并N张图片（网络/本地）
+        /// </summary>
+        /// <param name="imageUrls">
+        /// 图片路径（网路路径或者本地路径）
+        /// 至少2张图片，最多4张图片，多余4张图片取前四张处理
+        /// </param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static byte[] MergeImages(string[] imageUrls, int size = 250)
+        {
+            if (imageUrls == null || imageUrls.Length < 2)
+            {
+                return null;
+            }
+            switch (imageUrls.Length)
+            {
+                case 2:
+                    {
+                        var image1 = Download(imageUrls[0]);
+                        var image2 = Download(imageUrls[1]);
+                        return Merge2Images(image1, image2);
+                    }
+                case 3:
+                    {
+                        var image1 = Download(imageUrls[0]);
+                        var image2 = Download(imageUrls[1]);
+                        var image3 = Download(imageUrls[2]);
+                        return Merge3Images(image1, image2, image3);
+                    }
+                default:
+                    {
+                        var image1 = Download(imageUrls[0]);
+                        var image2 = Download(imageUrls[1]);
+                        var image3 = Download(imageUrls[2]);
+                        var image4 = Download(imageUrls[3]);
+                        return Merge4Images(image1, image2, image3, image4);
+                    }
+            }
+        }
+
+        /// <summary>
+        /// 合并N张图片（Byte数组）
+        /// </summary>
+        /// <param name="imagBytes">
+        /// 图片Byte
+        /// 至少2张图片，最多4张图片，多余4张图片取前四张处理
+        /// </param>
+        /// <param name="size"></param>
+        /// <returns></returns>
+        public static byte[] MergeImages(byte[][] imagBytes, int size = 250)
+        {
+            if (imagBytes == null || imagBytes.Length < 2)
+            {
+                return null;
+            }
+            switch (imagBytes.Length)
+            {
+                case 2:
+                    {
+                        var image1 = imagBytes[0];
+                        var image2 = imagBytes[1];
+                        return Merge2Images(image1, image2);
+                    }
+                case 3:
+                    {
+                        var image1 = imagBytes[0];
+                        var image2 = imagBytes[1];
+                        var image3 = imagBytes[2];
+                        return Merge3Images(image1, image2, image3);
+                    }
+                default:
+                    {
+                        var image1 = imagBytes[0];
+                        var image2 = imagBytes[1];
+                        var image3 = imagBytes[2];
+                        var image4 = imagBytes[3];
+                        return Merge4Images(image1, image2, image3, image4);
+                    }
+            }
+        }
+
+        /// <summary>
         /// 合并2张网络图片
         /// </summary>
         /// <param name="image1Url"></param>
@@ -35,7 +117,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image3Url"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static byte[] Merge3Images(string image1Url, string image2Url, string image3Url, Merge3LayoutEnum layout, int size = 250)
+        public static byte[] Merge3Images(string image1Url, string image2Url, string image3Url, Merge3LayoutEnum layout = Merge3LayoutEnum.Merge1R2S1, int size = 250)
         {
             var image1 = Download(image1Url);
             var image2 = Download(image2Url);
@@ -52,7 +134,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image4Url"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static byte[] Merge4Images(string image1Url, string image2Url, string image3Url, string image4Url, Merge4LayoutEnum layout, int size = 250)
+        public static byte[] Merge4Images(string image1Url, string image2Url, string image3Url, string image4Url, Merge4LayoutEnum layout = Merge4LayoutEnum.Merge4S, int size = 250)
         {
             var image1 = Download(image1Url);
             var image2 = Download(image2Url);
@@ -84,7 +166,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image3"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static byte[] Merge3Images(byte[] image1, byte[] image2, byte[] image3, Merge3LayoutEnum layout, int size = 250)
+        public static byte[] Merge3Images(byte[] image1, byte[] image2, byte[] image3, Merge3LayoutEnum layout = Merge3LayoutEnum.Merge1R2S1, int size = 250)
         {
             var image = Merge3Images(ConvertToImage(image1), ConvertToImage(image2), ConvertToImage(image3), layout, size);
             var buffers = ConvertToByte(image);
@@ -101,7 +183,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image4"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static byte[] Merge4Images(byte[] image1, byte[] image2, byte[] image3, byte[] image4, Merge4LayoutEnum layout, int size = 250)
+        public static byte[] Merge4Images(byte[] image1, byte[] image2, byte[] image3, byte[] image4, Merge4LayoutEnum layout = Merge4LayoutEnum.Merge4S, int size = 250)
         {
             var image = Merge4Images(ConvertToImage(image1), ConvertToImage(image2), ConvertToImage(image3), ConvertToImage(image4), layout, size);
             var buffers = ConvertToByte(image);
@@ -203,7 +285,7 @@ namespace Deepleo.ImageMerge
                 using (var ms = new MemoryStream())
                 {
                     bg.Save(ms, ImageFormat.Png);
-                    var buffers= ms.ToArray();
+                    var buffers = ms.ToArray();
                     return ConvertToImage(buffers);
                 }
             }
@@ -217,7 +299,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image3"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static Image Merge3Images(Image image1, Image image2, Image image3, Merge3LayoutEnum layout, int size = 250)
+        public static Image Merge3Images(Image image1, Image image2, Image image3, Merge3LayoutEnum layout = Merge3LayoutEnum.Merge1R2S1, int size = 250)
         {
             var width = size;
             var height = size;
@@ -413,7 +495,7 @@ namespace Deepleo.ImageMerge
         /// <param name="image4"></param>
         /// <param name="layout"></param>
         /// <returns></returns>
-        public static Image Merge4Images(Image image1, Image image2, Image image3, Image image4, Merge4LayoutEnum layout, int size = 250)
+        public static Image Merge4Images(Image image1, Image image2, Image image3, Image image4, Merge4LayoutEnum layout = Merge4LayoutEnum.Merge4S, int size = 250)
         {
             var width = size;
             var height = size;
